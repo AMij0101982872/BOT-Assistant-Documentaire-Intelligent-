@@ -11,7 +11,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # 1. --- CONFIGURATION ---
 load_dotenv(override=True)
-st.set_page_config(page_title="BOT DOC | Vision", page_icon="", layout="wide")
+st.set_page_config(page_title="JR DOC | Vision", page_icon="🎨", layout="wide")
 
 # 2. --- LOGO GÉNÉRATION ---
 def generate_pop_logo():
@@ -234,7 +234,7 @@ def main():
     # --- UI HEADER ---
     st.markdown(f"""
     <div class="header-box">
-        <h1>BOT DOC</h1>
+        <h1>JR DOC</h1>
         <p style="color:#1a1a1a; letter-spacing:3px; font-weight:700;">ANALYSES DOCUMENTAIRES HAUTE PRÉCISION</p>
     </div>
     """, unsafe_allow_html=True)
@@ -260,14 +260,26 @@ def main():
         if st.button("LANCER L'INDEXATION"):
             if files:
                 with st.spinner("Traitement..."):
+                    # ✅ RESET COMPLET : vider l'ancienne mémoire
+                    if "retriever" in st.session_state:
+                        del st.session_state.retriever
+                    if "history" in st.session_state:
+                        st.session_state.history = []
+
                     text = ""
                     for f in files:
                         r = PdfReader(f)
                         for p in r.pages: text += p.extract_text() or ""
                     chunks = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100).split_text(text)
-                    vector_db = Chroma.from_texts(chunks, OpenAIEmbeddings())
+                    
+                    # ✅ Nouveau Chroma en mémoire vive à chaque fois
+                    vector_db = Chroma.from_texts(
+                        chunks, 
+                        OpenAIEmbeddings(),
+                        collection_name="session_" + str(id(files))  # collection unique
+                    )
                     st.session_state.retriever = vector_db.as_retriever(search_kwargs={"k": 4})
-                st.success("SYSTÈME EN LIGNE")
+                st.success("✅ NOUVEAU DOCUMENT CHARGÉ — mémoire réinitialisée")
 
     # --- CHAT AREA ---
     if "history" not in st.session_state: 
