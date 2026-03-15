@@ -39,7 +39,7 @@ def generate_pop_logo():
     if font is None:
         font = ImageFont.load_default()
 
-    bbox = draw.textbbox((0, 0), "JAIM", font=font)
+    bbox = draw.textbbox((0, 0), "BOT DOC", font=font)
     text_w = bbox[2] - bbox[0]
     text_h = bbox[3] - bbox[1]
     x = (400 - text_w) // 2
