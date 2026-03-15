@@ -44,7 +44,7 @@ def generate_pop_logo():
     text_h = bbox[3] - bbox[1]
     x = (400 - text_w) // 2
     y = (400 - text_h) // 2 - 10
-    draw.text((x, y), "JAIM", fill="#1a1a1a", font=font)
+    draw.text((x, y), "BOT DOC", fill="#1a1a1a", font=font)
 
     # Resize to display size
     image = image.resize((200, 200), Image.LANCZOS)
@@ -250,7 +250,7 @@ def main():
                 text-align: center;
                 box-shadow: 0 4px 15px rgba(255,215,0,0.3);
             ">
-                <div style="font-size: 2rem; font-weight: 900; color: #1a1a1a; letter-spacing: 6px;">JAIM</div>
+                <div style="font-size: 2rem; font-weight: 900; color: #1a1a1a; letter-spacing: 6px;">BOT DOC </div>
                 <div style="font-size: 0.7rem; font-weight: 700; color: #1a1a1a; letter-spacing: 3px; margin-top: 4px; opacity: 0.7;">DOCUMENT ANALYSER</div>
             </div>
         """, unsafe_allow_html=True)
