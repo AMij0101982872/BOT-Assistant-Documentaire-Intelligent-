@@ -11,7 +11,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # 1. --- CONFIGURATION ---
 load_dotenv(override=True)
-st.set_page_config(page_title="JR DOC | Vision", page_icon="🎨", layout="wide")
+st.set_page_config(page_title="BOT DOC | Vision", page_icon="", layout="wide")
 
 # 2. --- LOGO GÉNÉRATION ---
 def generate_pop_logo():
@@ -234,7 +234,7 @@ def main():
     # --- UI HEADER ---
     st.markdown(f"""
     <div class="header-box">
-        <h1>JR DOC</h1>
+        <h1>BOT DOC</h1>
         <p style="color:#1a1a1a; letter-spacing:3px; font-weight:700;">ANALYSES DOCUMENTAIRES HAUTE PRÉCISION</p>
     </div>
     """, unsafe_allow_html=True)
