@@ -60,20 +60,10 @@ L'application repose sur les composants suivants :
 
 ## Installation
 
-1. Cloner le depot :
-```bash
-git clone https://github.com/votre-utilisateur/rag-assistant.git
-cd rag-assistant
-```
 
-2. Installer les dependances :
-```bash
-pip install -r requirements.txt
-```
-
-3. Creer un fichier `.env` a la racine :
+1. Creer un fichier `.env` a la racine :
 ```env
-OPENAI_API_KEY=your_openai_api_key
+OPENAI_API_KEY=openai_api_key
 ```
 
 ---
