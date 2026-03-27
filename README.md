@@ -2,6 +2,7 @@
 
 Une application Streamlit permettant de poser des questions sur des documents PDF grâce à l'IA.
 Le système repose sur une architecture RAG (Retrieval Augmented Generation) combinant embeddings et base vectorielle.
+> Application disponible en ligne : [smartiabot.streamlit.app](https://smartiabot.streamlit.app/)
 
 ---
 
