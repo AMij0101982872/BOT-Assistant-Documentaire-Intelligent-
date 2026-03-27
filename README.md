@@ -60,9 +60,11 @@ L'application repose sur les composants suivants :
 ---
 
 ## Installation
+1. Installer les dependances :
+```bash
+pip install -r requirements.txt
 
-
-1. Creer un fichier `.env` a la racine :
+2. Creer un fichier `.env` a la racine :
 ```env
 OPENAI_API_KEY=openai_api_key
 ```
